@@ -1,20 +1,44 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello jeune entrepeneur{% endblock %}
+{% block title %}HELLO BOUTIQUE{% endblock %}
 
 {% block body %}
-    <h1> Liste des produits</h1>
-    {% for produits in produit %}
-        <ul> 
-            <li>
-                <a href="homepage/{{produits.alias}}">
+    <h1 style="text-align: center;">HELLO BOUTIQUE</h1>
+    <h2 style="text-align: center;">Bienvenue sur ma boutique</h2>
+    <div class="product-grid">
+        {% for produits in produit %}
+            <a href="homepage/{{produits.alias}}" class="product-card">
                 <img src="{{produits.image}}" alt="" width="150px">
-                </a>
-                {{produits.nom}} :
-                Prix : {{produits.prix}} € , 
-                Poids : {{produits.poids}} Kg , 
-                Dangereux : {% if produits.dangereux == 1 %}Oui{% else %}Non{% endif %}
-            </li>
-        </ul>
-    {% endfor %}
+                <div class="product-details">
+                    <h2>{{produits.nom}}</h2>
+                    <p>Prix : {{produits.prix}} €</p>
+                    <p>Poids : {{produits.poids}} Kg</p>
+                    <p>Dangereux : {% if produits.dangereux == 1 %}Oui{% else %}Non{% endif %}</p>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Adjust the gap between products as needed */
+        }
+        .product-card {
+            flex: 1 1 calc(33.333% - 20px); /* Adjust the percentage to control the number of products per row */
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            background-color: white; /* Set background color to white */
+            text-decoration: none; /* Remove underline from links */
+            color: inherit; /* Inherit text color */
+        }
+        .product-card:hover {
+            background-color: #f9f9f9; /* Optional: Add a hover effect */
+        }
+    </style>
 {% endblock %}

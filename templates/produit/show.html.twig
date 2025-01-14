@@ -3,14 +3,17 @@
 {% block title %}Hello jeune entrepeneur{% endblock %}
 
 {% block body %}
-    <h1>{{produit.nom}}</h1>
-    <img src="{{asset('image/produits/' ~ produit.alias ~'.jpg')}}" alt "" width="450px">
-    <br>
-    Prix : {{produit.prix}} €
-    <br>
-    Poids : {{produit.poids}} Kg
-    <br>
-    Dangereux : {% if produit.dangereux == 1 %}Oui{% else %}Non{% endif %}
-    <br><br>
-    <a href="{{path('produit_list')}}">Retour au catalogue</a>
+    <h1 style="text-align: center;">HELLO BOUTIQUE</h1>
+    <div style="background-color: white; text-align: center; margin: 0 auto;">
+        <h1>{{produit.nom}}</h1>
+        <img src="{{asset('image/produits/' ~ produit.alias ~'.jpg')}}" alt="" width="450px">
+        <br>
+        Prix : {{produit.prix}} €
+        <br>
+        Poids : {{produit.poids}} Kg
+        <br>
+        Dangereux : {% if produit.dangereux == 1 %}Oui{% else %}Non{% endif %}
+        <br><br>
+        <a href="{{path('produit_list')}}">Retour au catalogue</a>
+    </div>
 {% endblock %}
