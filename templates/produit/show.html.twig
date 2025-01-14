@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello jeune entrepeneur{% endblock %}
+
+{% block body %}
+    <h1>{{produit.nom}}</h1>
+    <img src="{{asset('image/produits/' ~ produit.alias ~'.jpg')}}" alt "" width="450px">
+    <br>
+    Prix : {{produit.prix}} €
+    <br>
+    Poids : {{produit.poids}} Kg
+    <br>
+    Dangereux : {% if produit.dangereux == 1 %}Oui{% else %}Non{% endif %}
+    <br><br>
+    <a href="{{path('produit_list')}}">Retour au catalogue</a>
+{% endblock %}

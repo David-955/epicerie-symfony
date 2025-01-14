@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello jeune entrepeneur{% endblock %}
+
+{% block body %}
+    <h1> Liste des produits</h1>
+    {% for produits in produit %}
+        <ul> 
+            <li>
+                <a href="homepage/{{produits.alias}}">
+                <img src="{{produits.image}}" alt="" width="150px">
+                </a>
+                {{produits.nom}} :
+                Prix : {{produits.prix}} € , 
+                Poids : {{produits.poids}} Kg , 
+                Dangereux : {% if produits.dangereux == 1 %}Oui{% else %}Non{% endif %}
+            </li>
+        </ul>
+    {% endfor %}
+{% endblock %}
